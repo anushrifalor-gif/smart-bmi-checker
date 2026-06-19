@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart BMI Checker</title>
+    <link rel="stylesheet" 
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+
+
+    <h1>Smart BMI Checker</h1>
+
+    <form method="POST">
+        <label>Name</label>
+<br>
+<input type="text" name="name" required>
+
+<br><br>
+<label>Age</label>
+<br>
+<input type="number" name="age" required>
+
+<br><br>
+<label>Gender</label>
+<br>
+
+<select name="gender">
+
+    <option value="Male">Male</option>
+
+    <option value="Female">Female</option>
+
+    <option value="Other">Other</option>
+
+</select>
+
+<br><br>
+
+        <label>Weight (kg)</label>
+        <br>
+        <input type="number" step="0.1" name="weight" required>
+
+        <br><br>
+
+        <label>Height (cm)</label>
+        <br>
+        <input type="number" step="0.1" name="height" required>
+
+        <br><br>
+
+        <button type="submit">
+            Calculate BMI
+        </button>
+
+    </form>
+{% if result %}
+
+{% if result %}
+
+<div class="result">
+
+    <h2>Health Report</h2>
+
+    <p><strong>Name:</strong> {{ result.name }}</p>
+
+    <p><strong>Age:</strong> {{ result.age }}</p>
+
+    <p><strong>Gender:</strong> {{ result.gender }}</p>
+
+    <p><strong>BMI:</strong> {{ result.bmi }}</p>
+    <p><strong>Health Score:</strong>
+{{ result.score }}/100</p>
+
+    <p><strong>Category:</strong> {{ result.category }}</p>
+
+    <p><strong>Recommended Water Intake:</strong>
+    {{ result.water }} Litres/day</p>
+
+    <p><strong>Health Suggestion:</strong>
+    {{ result.suggestion }}</p>
+
+</div>
+
+{% endif %}
+
+{% endif %}
+
+</div>
+</body>
+</html>
